@@ -62,4 +62,15 @@
 
 {{! NavBar }}
 
-{{! travelers }}
+{{#each travelers}}
+  <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+    <div class="card-header">{{name}}</div>
+    <div class="card-body">
+      <h4 class="card-title">{{email}}</h4>
+      <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing
+        elit. Ipsa error cupiditate minima, impedit nisi amet itaque, officia
+        hic quasi facere ratione quidem molestias eveniet sed vero libero. Iure,
+        doloremque facilis.</p>
+    </div>
+  </div>
+{{/each}}
