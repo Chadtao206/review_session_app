@@ -1,8 +1,12 @@
-const router = require('express').Router();
-const { Trip } = require('../../models');
+const router = require("express").Router();
+const { Trip } = require("../../models");
 
 // CREATE a trip
-router.post('/', async (req, res) => {
+router.get("/", async (req, res) => {
+  res.json(await Trip.findAll()).map((a) => a.get({ plain: true }));
+});
+
+router.post("/", async (req, res) => {
   try {
     const tripData = await Trip.create(req.body);
     res.status(200).json(tripData);
@@ -12,13 +16,13 @@ router.post('/', async (req, res) => {
 });
 
 // DELETE a trip
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const tripData = await Trip.destroy({
-      where: { id: req.params.id }
+      where: { id: req.params.id },
     });
     if (!tripData) {
-      res.status(404).json({ message: 'No trip with this id!' });
+      res.status(404).json({ message: "No trip with this id!" });
       return;
     }
     res.status(200).json(tripData);

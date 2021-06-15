@@ -64,7 +64,19 @@
 
 {{#each travelers}}
   <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-    <div class="card-header">{{name}}</div>
+    <div
+      class="card-header"
+      style="display: flex;justify-content:space-between"
+    >
+      <span>{{name}}</span>
+      <button
+        data-bs-toggle="modal"
+        data-bs-target="#travel-modal"
+        type="button"
+        class="btn travel-btn btn-light"
+        data-id={{id}}
+      >Travel</button>
+    </div>
     <div class="card-body">
       <h4 class="card-title">{{email}}</h4>
       <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing
@@ -74,3 +86,36 @@
     </div>
   </div>
 {{/each}}
+
+<div class="modal fade" id="travel-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Pick a place to travel</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <div class="form-group has-success">
+          <label class="form-label mt-4" for="inputValid">Enter numbers only!</label>
+          <input
+            type="text"
+            value="correct value"
+            class="form-control is-valid"
+            id="budget-input"
+          />
+          <div class="valid-feedback">please enter a budget</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
